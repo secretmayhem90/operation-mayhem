@@ -3,28 +3,16 @@
         
     </head>
     <body>
-        MAYHEM IS COMMING
+        <br>
+        <br>
+        <br>
+       <center>
+           <FONT size="7">
+               MAYHEM IS COMING
+           </FONT> 
+       </center>
 
-<script>
-    const einddatum = new Date('2026-10-01T00:00:00');
 
-    function updateCountdown() {
-        const nu = new Date();
-        const verschil = einddatum - nu;
-    
-    const dagen = Math.floor(verschil / (1000 * 60 * 60 * 24));
-    const uren = Math.floor((verschil / (1000 * 60 * 60)) % 24);
-    const minuten = Math.floor((verschil / (1000 * 60)) % 60);
-    const seconden = Math.floor((verschil / 1000) % 60);
-
-    document.getElementById('countdown').innerHTML =
-        `${dagen}d ${uren}u ${minuten}m ${seconden}s`;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-    
     
     </body>
 </html>
