@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Escape Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        #melding {
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Logs, logs, logs</h1>
+    	<br>Zoals we al eerder zagen zijn logbestanden enorm belangrijk. Zo ook nu weer. We zitten nog steeds met de vraag welke data buit gemaakt is.
+	Daarom duiken we weer in logbestanden. Alleen daarmee weten we zeker wat er is gebeurd, hoe het is gebuerd en of we ons zorgen moeten maken.
+	Stel dat de alle data van de afdeling communicatie gestolen is. Dan is de kans groot dat dit heel veel publicatie materiaal betreft. Een ander
+	verhaal is het als alle salarisstroken zijn gestolen! Aan jou de vraag om de onderstaande logregels te analyseren.
+<br>
+<br>
+<center>
+<A HREF="afbeeldingen\data_export_log.csv">Download bestand</A>
+</center>
+<br>
+
+    <p>
+        <strong>Vraag 5:<br></strong>
+        Kopieer de naam van het bestand<br>
+    </p>
+
+    <input type="text" id="antwoord">
+    <br>
+
+    <button onclick="controleer()">Controleer</button>
+
+    <p id="melding"></p>
+
+    <script>
+        function controleer() {
+
+            let antwoord =
+                document.getElementById("antwoord")
+                .value
+                .trim()
+                .toLowerCase();
+
+            if (antwoord === "brp inwoners") {
+
+                window.location.href =
+                    "brp.html";
+
+            } else {
+
+                document.getElementById("melding").innerHTML =
+                    "Onjuist antwoord. Probeer opnieuw.";
+
+                document.getElementById("antwoord").value = "";
+
+            }
+        }
+    </script>
+
+</body>
+</html>

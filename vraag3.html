@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Escape Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        #melding {
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>De bron</h1>
+   	<br> nu we weten wie patient zero is, moeten we achterhalen waar de besmetting vandaan is gekomen. Dat onderdeel dienen we op te lossen voordat we gaan herstellen.
+	<br> Als we het niet oplossen, dan is kan het zijn dat we weer gehackt worden. We beginnen met de bron bij de binnenkomende, zakelijke e-mail. 
+	<br> Dit kunnen we eenvoudig achterhalen in de logbestanden. Zie jij een verdachte e-mail?
+	<br> 
+	<br>
+
+<center>
+<img src="afbeeldingen\logs.jpg" width="1000" height="700">
+</center>
+<br>
+
+    <p>
+        <strong>Vraag 3:<br></strong>
+        <br>Van welk domein is de besmette e-mail afkomstig?
+    </p>
+
+    <input type="text" id="antwoord">
+    <br>
+
+    <button onclick="controleer()">Controleer</button>
+
+    <p id="melding"></p>
+
+    <script>
+        function controleer() {
+
+            let antwoord =
+                document.getElementById("antwoord")
+                .value
+                .trim()
+                .toLowerCase();
+
+            if (antwoord === "micr0soft365.com") {
+
+                window.location.href =
+                    "micr0soft365.com.html";
+
+            } else {
+
+                document.getElementById("melding").innerHTML =
+                    "Onjuist antwoord. Probeer opnieuw.";
+
+                document.getElementById("antwoord").value = "";
+
+            }
+        }
+    </script>
+
+</body>
+</html>

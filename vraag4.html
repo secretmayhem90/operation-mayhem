@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Escape Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        #melding {
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Maar, hoe nu verder?</h1>
+    	<br>Dat Jan op een link heeft geklikt zegt nog steeds niet zoveel. Was dat het wel? We moeten verder kijken, hoe is de hacker onze systemen binnen gekomen?
+	<br>Hierin is logging enorm belangrijk. Daarom besteden we ook veel aandacht aan het veilig opslaan van deze gegevens. Hiermee kunnen we precies achterhalen
+	<br>wat er op welk tijdstip gebeurd is. We pakken als eerste de inlogpogingen van Jan erbij. Kunnen we hier iets opmerkelijks in vinden?
+<br>
+<br>
+<center>
+<img src="afbeeldingen\logins.jpg" width="800" height="500">
+</center>
+<br>
+
+    <p>
+        <strong>Vraag 4:<br></strong>
+        Welke stad wijkt af van het 'normale' gedrag van Jan?<br>
+    </p>
+
+    <input type="text" id="antwoord">
+    <br>
+
+    <button onclick="controleer()">Controleer</button>
+
+    <p id="melding"></p>
+
+    <script>
+        function controleer() {
+
+            let antwoord =
+                document.getElementById("antwoord")
+                .value
+                .trim()
+                .toLowerCase();
+
+            if (antwoord === "moskou") {
+
+                window.location.href =
+                    "moskou.html";
+
+            } else {
+
+                document.getElementById("melding").innerHTML =
+                    "Onjuist antwoord. Probeer opnieuw.";
+
+                document.getElementById("antwoord").value = "";
+
+            }
+        }
+    </script>
+
+</body>
+</html>
