@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Escape Room | Patient Zero</title>
+    <style>
+        :root {
+            --navy: #071827;
+            --panel: rgba(12, 35, 52, 0.95);
+            --cyan: #42d9f5;
+            --green: #55e69b;
+            --red: #ff6577;
+            --orange: #ffb454;
+            --text: #eef9ff;
+            --muted: #b7cad5;
+            --border: rgba(66, 217, 245, 0.24);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 32px 18px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 15% 10%, rgba(66, 217, 245, 0.12), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(255, 101, 119, 0.08), transparent 28%),
+                linear-gradient(145deg, #04101b 0%, var(--navy) 55%, #0a2230 100%);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image:
+                linear-gradient(rgba(66, 217, 245, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(66, 217, 245, 0.08) 1px, transparent 1px);
+            background-size: 38px 38px;
+            mask-image: linear-gradient(to bottom, black, transparent 90%);
+        }
+
+        .page {
+            position: relative;
+            width: min(980px, 100%);
+            margin: 0 auto;
+        }
+
+        .mission-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--cyan);
+            background: rgba(5, 23, 34, 0.78);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .mission-label::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 14px var(--red);
+        }
+
+        .card {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--panel);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero {
+            padding: 38px 38px 32px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(255, 101, 119, 0.12), rgba(66, 217, 245, 0.05));
+        }
+
+        .alert {
+            margin: 0 0 10px;
+            color: var(--red);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            line-height: 1;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.12rem;
+            line-height: 1.65;
+        }
+
+        .content { padding: 34px 38px 38px; }
+
+        .scenario {
+            padding: 22px;
+            border-left: 4px solid var(--red);
+            border-radius: 12px;
+            background: rgba(255, 101, 119, 0.07);
+        }
+
+        .content p {
+            margin: 0 0 18px;
+            color: #d9e9f0;
+            font-size: 1.04rem;
+            line-height: 1.75;
+        }
+
+        .quote {
+            margin: 23px 0;
+            color: #ffffff;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 750;
+            text-align: center;
+        }
+
+        .mission {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 18px;
+            margin: 28px 0;
+            padding: 23px;
+            border: 1px solid rgba(255, 180, 84, 0.28);
+            border-radius: 14px;
+            background: rgba(255, 180, 84, 0.08);
+        }
+
+        .mission-icon {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            color: #06141e;
+            background: var(--orange);
+            font-size: 1.65rem;
+            font-weight: 900;
+        }
+
+        .mission h2 {
+            margin: 0 0 8px;
+            color: #ffd198;
+            font-size: 1.35rem;
+        }
+
+        .mission p:last-child { margin-bottom: 0; }
+
+        .evidence {
+            overflow: hidden;
+            margin: 28px 0;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            background: rgba(3, 20, 31, 0.6);
+        }
+
+        .evidence img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 590px;
+            object-fit: contain;
+            background: #020b11;
+        }
+
+        .caption {
+            padding: 14px 18px;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .question {
+            margin-top: 28px;
+            padding: 26px;
+            border: 1px solid rgba(85, 230, 155, 0.25);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(85, 230, 155, 0.09), rgba(66, 217, 245, 0.05));
+        }
+
+        .question-number {
+            color: var(--green);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .question h2 {
+            margin: 7px 0 18px;
+            font-size: clamp(1.35rem, 4vw, 1.8rem);
+        }
+
+        .answer-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            min-height: 50px;
+            padding: 12px 15px;
+            border: 1px solid rgba(183, 202, 213, 0.35);
+            border-radius: 10px;
+            outline: none;
+            color: var(--text);
+            background: rgba(1, 13, 21, 0.75);
+            font: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 3px rgba(66, 217, 245, 0.12);
+        }
+
+        button {
+            min-height: 50px;
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 10px;
+            color: #03131d;
+            background: linear-gradient(135deg, var(--cyan), #8be8f8);
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        button:hover,
+        button:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(66, 217, 245, 0.18);
+            outline: none;
+        }
+
+        #melding {
+            min-height: 24px;
+            margin: 14px 0 0;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 17px 34px;
+            border-top: 1px solid var(--border);
+            color: #819aa7;
+            text-align: center;
+            font-size: 0.86rem;
+            background: rgba(2, 15, 24, 0.35);
+        }
+
+        @media (max-width: 650px) {
+            body { padding: 18px 12px; }
+            .hero, .content { padding: 25px; }
+            .mission { grid-template-columns: 1fr; }
+            .answer-row { flex-direction: column; }
+            button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="mission-label">Cyber Escape Room · Incident actief</div>
+
+        <section class="card">
+            <header class="hero">
+                <p class="alert"></p>
+                <center><h1>Oktober 2026</h1></center>
+                <p></p>
+            </header>
+
+            <div class="content">
+                <section class="scenario">
+
+                        <h2>Jouw missie</h2>
+                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat de aanval moet onderzoeken. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, meldingen van medewerkers en aanwijzingen uit verschillende systemen.</p>
+                        <p>Alle sporen lijken naar één persoon te leiden: <strong>Patient Zero</strong>. Dit is de eerste persoon of het eerste systeem dat tijdens de aanval geïnfecteerd raakte. Vanaf dit punt heeft de aanval zich verder door de organisatie verspreid.</p>
+                    </div>
+                </section>
+
+                <figure class="evidence">
+                    <img src="banner.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
+                                    </figure>
+
+
+            </div>
+
+            <footer>Oktober Security Maand · Cyber Escape Room</footer>
+        </section>
+    </main>
+
+
+</body>
+</html>
