@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Escape Room | Antwoord gevonden</title>
+    <style>
+        :root {
+            --navy: #071827;
+            --panel: rgba(12, 35, 52, 0.94);
+            --panel-light: rgba(19, 54, 75, 0.9);
+            --cyan: #42d9f5;
+            --green: #55e69b;
+            --orange: #ffb454;
+            --text: #eef9ff;
+            --muted: #b7cad5;
+            --border: rgba(66, 217, 245, 0.24);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 15% 10%, rgba(66, 217, 245, 0.12), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(85, 230, 155, 0.09), transparent 28%),
+                linear-gradient(145deg, #04101b 0%, var(--navy) 55%, #0a2230 100%);
+            padding: 32px 18px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image:
+                linear-gradient(rgba(66, 217, 245, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(66, 217, 245, 0.08) 1px, transparent 1px);
+            background-size: 38px 38px;
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+
+        .page {
+            position: relative;
+            width: min(920px, 100%);
+            margin: 0 auto;
+        }
+
+        .mission-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--cyan);
+            background: rgba(5, 23, 34, 0.78);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .mission-label::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 14px var(--green);
+        }
+
+        .card {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--panel);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+            backdrop-filter: blur(8px);
+        }
+
+        .success {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 22px;
+            align-items: center;
+            padding: 34px;
+            background: linear-gradient(135deg, rgba(85, 230, 155, 0.14), rgba(66, 217, 245, 0.05));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .success-icon {
+            display: grid;
+            place-items: center;
+            width: 74px;
+            height: 74px;
+            border: 2px solid var(--green);
+            border-radius: 50%;
+            color: var(--green);
+            font-size: 2.3rem;
+            font-weight: 800;
+            box-shadow: 0 0 30px rgba(85, 230, 155, 0.19);
+        }
+
+        h1 {
+            margin: 0 0 7px;
+            font-size: clamp(2rem, 5vw, 3.3rem);
+            line-height: 1.05;
+        }
+
+        .lead {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .content { padding: 34px; }
+
+        .content h2 {
+            margin: 0 0 16px;
+            color: var(--cyan);
+            font-size: 1.35rem;
+        }
+
+        .content p {
+            margin: 0 0 18px;
+            color: #d9e9f0;
+            font-size: 1.04rem;
+            line-height: 1.75;
+        }
+
+        .lesson {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 15px;
+            margin: 28px 0;
+            padding: 21px;
+            border: 1px solid rgba(255, 180, 84, 0.28);
+            border-left: 4px solid var(--orange);
+            border-radius: 13px;
+            background: rgba(255, 180, 84, 0.08);
+        }
+
+        .lesson-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .lesson strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #ffd198;
+        }
+
+        .lesson p { margin: 0; }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 50px;
+            padding: 12px 20px;
+            border: 1px solid var(--cyan);
+            border-radius: 11px;
+            text-decoration: none;
+            font-weight: 750;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(66, 217, 245, 0.17);
+            outline: none;
+        }
+
+        .button-primary {
+            color: #03131d;
+            background: linear-gradient(135deg, var(--cyan), #8be8f8);
+        }
+
+        .button-secondary {
+            color: var(--cyan);
+            background: transparent;
+        }
+
+        footer {
+            padding: 17px 34px;
+            border-top: 1px solid var(--border);
+            color: #819aa7;
+            font-size: 0.86rem;
+            text-align: center;
+            background: rgba(2, 15, 24, 0.35);
+        }
+
+        @media (max-width: 650px) {
+            body { padding: 18px 12px; }
+            .success { grid-template-columns: 1fr; padding: 25px; }
+            .success-icon { width: 62px; height: 62px; }
+            .content { padding: 25px; }
+            .actions { flex-direction: column; }
+            .button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="mission-label">Cyber Escape Room · Missievoortgang</div>
+
+        <section class="card">
+            <header class="success">
+                <div class="success-icon" aria-hidden="true">✓</div>
+                <div>
+                    <h1>Gefeliciteerd! Je hebt de crisis doorstaan!</h1>
+                    <p class="lead"></p>
+                </div>
+            </header>
+
+            <div class="content">
+                <h2>Alle systemen zijn eindelijk hersteld!</h2>
+
+                <p>Dankzij jouw speurwerk is de aanval onderzocht, zijn de getroffen systemen hersteld en kan de gemeente weer veilig haar dienstverlening uitvoeren. Tijdens deze cybercrisis heb je belangrijke beslissingen genomen, logbestanden geanalyseerd, verdachte e-mails onderzocht, inlogpogingen beoordeeld, datalekken opgespoord en keuzes gemaakt onder hoge druk.
+
+Gelukkig stond de gemeente er niet alleen voor. Achter de schermen zijn tal van maatregelen aanwezig om de impact van storingen en cyberaanvallen zo klein mogelijk te houden. Denk aan redundante systemen, dubbele opslagvoorzieningen, noodstroomvoorzieningen, UPS-installaties en back-ups die ervoor zorgen dat gegevens kunnen worden hersteld wanneer er iets misgaat.
+
+Daarnaast wordt dagelijks gebruikgemaakt van beveiligingsmaatregelen zoals firewalls, antivirussoftware, multifactor-authenticatie, monitoring, kwetsbaarheidsscans en beveiligingsupdates. Toch bestaat er helaas geen knop waarmee cybercriminaliteit volledig kan worden uitgeschakeld.
+
+Cybersecurity blijft een continu kat-en-muisspel. Terwijl organisaties hun beveiliging verbeteren, zoeken aanvallers voortdurend naar nieuwe kwetsbaarheden en technieken. Elke dag worden wereldwijd nieuwe beveiligingslekken ontdekt en worden miljoenen phishingmails verstuurd in de hoop dat iemand erop klikt. Daarom blijft niet alleen techniek belangrijk, maar vooral ook het bewustzijn van medewerkers.
+
+Jij hebt laten zien waarom dat bewustzijn zo belangrijk is. Door kritisch te kijken naar verdachte situaties, vragen te stellen en informatie zorgvuldig te analyseren, heb je geholpen om een cyberincident onder controle te krijgen. Dat zijn precies de vaardigheden die in de praktijk het verschil kunnen maken tussen een kleine verstoring en een grote crisis.
+
+Onthoud: cybersecurity is geen verantwoordelijkheid van één afdeling. Iedereen binnen een organisatie speelt een rol in het beschermen van gegevens, systemen en dienstverlening.
+
+			
+                <div class="lesson">
+                    <div class="lesson-icon" aria-hidden="true">⚠</div>
+                    <div>
+                        <strong>Schrijf je in voor de loting</strong>
+                        <p>Je hebt de organisatie succesvol gered en komt in aanmerking voor een prijs. Je mag een e-mail sturen naar het onderstaande adres met enkel je naam. Er worden drie prijzen weggegeven. Per gemeente wordt er één winnaar geloot</p>
+			<p>In de e-mail hoef je enkel je naam op te geven. Uiteraard zijn we ook benieuwd naar je mening over deze escape room.
+			<p> Dank je deelname!
+                    </div>
+                </div>
+
+
+                    <center><a class="button button-primary"">
+                        secret.mayhem.90@gmail.com <span aria-hidden="true"></span>
+                    </a>
+		  </center>
+                </div>
+            </div>
+	<center>Er is bewust voor een extern adres gekozen om te voorkomen dat deze eenvoudig te raden is ;-)</center>
+
+            <footer>Oktober Security Maand · Cyber Escape Room</footer>
+        </section>
+    </main>
+</body>
+</html>

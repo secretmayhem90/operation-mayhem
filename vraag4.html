@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Escape Room | Patient Zero</title>
+    <title>Cyber Escape Room | Maar, hoe nu verder?</title>
     <style>
         :root {
             --navy: #071827;
@@ -288,41 +288,37 @@
 
         <section class="card">
             <header class="hero">
-                <p class="alert">Kritieke cyberaanval</p>
-                <h1>Patient Zero</h1>
-                <p>De gemeentelijke dienstverlening ligt stil. Onderzoek de aanwijzingen, reconstrueer de aanval en vind de eerste besmette medewerker.</p>
+                <p class="alert">Cyberonderzoek</p>
+                <h1>Maar, hoe nu verder?</h1>
+                <p>Dat Jan op een link heeft geklikt zegt nog steeds niet zoveel. Was dat het wel? We moeten verder kijken, hoe is de hacker onze systemen binnen gekomen?</p>
             </header>
 
             <div class="content">
                 <section class="scenario">
-                    <p>Het is maandagochtend. Je loopt het stadhuis binnen en merkt direct dat er iets mis is. Bij de balies staan inwoners in de rij. De telefoons rinkelen onafgebroken. Collega's lopen gehaast door de gangen en overal hoor je dezelfde vraag:</p>
+                    <p>We weten nu welke e-mail de aanval mogelijk heeft veroorzaakt, maar één verdachte e-mail bewijst nog niet hoe de aanvaller daadwerkelijk toegang heeft gekregen tot onze systemen.
 
-                    <div class="quote">“Doet jouw systeem het nog?”</div>
+Om dat te achterhalen duiken we dieper in het onderzoek. Gelukkig laten aanvallers vaak digitale sporen achter. Dankzij logbestanden kunnen we precies zien welke acties hebben plaatsgevonden, wanneer deze gebeurden en vanaf welke locatie ze werden uitgevoerd. Daarom is het verzamelen en veilig bewaren van logging een essentieel onderdeel van cybersecurity en incidentrespons.
 
-                    <p>Al snel wordt duidelijk wat er aan de hand is. Een cyberaanval heeft grote delen van de organisatie platgelegd. Uitkeringen kunnen niet worden verwerkt. Zaken kunnen niet worden geraadpleegd. Medewerkers kunnen documenten niet openen. De burgemeester is niet bereikbaar en verschillende applicaties geven alleen foutmeldingen.</p>
+Het Security Operations Center heeft de inloggegevens van Jan onderzocht. Op het eerste gezicht lijkt alles normaal, maar schijn kan bedriegen. Cybercriminelen gebruiken gestolen wachtwoorden namelijk vaak vanaf een andere locatie in de wereld.
 
-                    <p>De druk loopt op. Burgers wachten op hulp, maar de systemen die daarvoor nodig zijn werken niet meer. Terwijl iedereen probeert te achterhalen wat er gebeurd is, krijg jij een belangrijke opdracht.</p>
+Eén van de signalen waar beveiligingsteams op letten is een zogenaamde "Impossible Travel". Hierbij lijkt een gebruiker binnen een onmogelijke tijdspanne vanaf twee verschillende locaties in te loggen. Iemand kan immers niet om 09:00 uur inloggen vanuit Nederland en twintig minuten later vanuit Australië.
+
+Bekijk de inlogpogingen van Jan zorgvuldig. Zie jij iets dat niet klopt? Misschien ligt hier wel het bewijs dat de aanvaller daadwerkelijk toegang heeft gekregen tot het netwerk...</p>
                 </section>
 
-                <section class="mission">
-                    <div class="mission-icon" aria-hidden="true">!</div>
-                    <div>
-                        <h2>Jouw missie</h2>
-                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat de aanval moet onderzoeken. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, meldingen van medewerkers en aanwijzingen uit verschillende systemen.</p>
-                        <p>Alle sporen lijken naar één persoon te leiden: <strong>Patient Zero</strong>. Dit is de eerste persoon of het eerste systeem dat tijdens de aanval geïnfecteerd raakte. Vanaf dit punt heeft de aanval zich verder door de organisatie verspreid.</p>
-                    </div>
-                </section>
+
+
+
 
                 <figure class="evidence">
-                    <img src="afbeeldingen/patientzero.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
-                    <figcaption class="caption">Op de foto zie je: Kim, Mark, Jan, Rianne &amp; Margot</figcaption>
+                    <img src="afbeeldingen\logins.jpg" width="800" height="500" alt="Inlogpogingen van Jan">
                 </figure>
 
                 <section class="question">
-                    <div class="question-number">Vraag 1</div>
-                    <h2>Wie was de eerste besmette medewerker?</h2>
+                    <div class="question-number">Vraag 4</div>
+                    <h2>Welke stad wijkt af van het 'normale' gedrag van Jan?</h2>
                     <div class="answer-row">
-                        <input type="text" id="antwoord" aria-label="Vul de naam van de eerste besmette medewerker in" autocomplete="off" placeholder="Vul een naam in">
+                        <input type="text" id="antwoord" aria-label="Vul de afwijkende stad in" autocomplete="off">
                         <button type="button" onclick="controleer()">Controleer</button>
                     </div>
                     <p id="melding" role="status" aria-live="polite"></p>
@@ -339,8 +335,8 @@
             const melding = document.getElementById("melding");
             const antwoord = invoerveld.value.trim().toLowerCase();
 
-            if (antwoord === "jan") {
-                window.location.href = "jan.html";
+            if (antwoord === "moskou") {
+                window.location.href = "moskou.html";
             } else {
                 melding.textContent = "Onjuist antwoord. Bekijk de aanwijzingen nog eens en probeer opnieuw.";
                 invoerveld.value = "";

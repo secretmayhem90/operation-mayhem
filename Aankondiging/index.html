@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Escape Room | Patient Zero</title>
+    <title>Cyber Escape Room | Oktober 2026</title>
     <style>
         :root {
             --navy: #071827;
@@ -288,71 +288,34 @@
 
         <section class="card">
             <header class="hero">
-                <p class="alert">Kritieke cyberaanval</p>
-                <h1>Patient Zero</h1>
-                <p>De gemeentelijke dienstverlening ligt stil. Onderzoek de aanwijzingen, reconstrueer de aanval en vind de eerste besmette medewerker.</p>
+                <p class="alert"></p>
+                <center><h1>Oktober 2026</h1></center>
+                <p></p>
             </header>
 
             <div class="content">
                 <section class="scenario">
-                    <p>Het is maandagochtend. Je loopt het stadhuis binnen en merkt direct dat er iets mis is. Bij de balies staan inwoners in de rij. De telefoons rinkelen onafgebroken. Collega's lopen gehaast door de gangen en overal hoor je dezelfde vraag:</p>
 
-                    <div class="quote">“Doet jouw systeem het nog?”</div>
-
-                    <p>Al snel wordt duidelijk wat er aan de hand is. Een cyberaanval heeft grote delen van de organisatie platgelegd. Uitkeringen kunnen niet worden verwerkt. Zaken kunnen niet worden geraadpleegd. Medewerkers kunnen documenten niet openen. De burgemeester is niet bereikbaar en verschillende applicaties geven alleen foutmeldingen.</p>
-
-                    <p>De druk loopt op. Burgers wachten op hulp, maar de systemen die daarvoor nodig zijn werken niet meer. Terwijl iedereen probeert te achterhalen wat er gebeurd is, krijg jij een belangrijke opdracht.</p>
-                </section>
-
-                <section class="mission">
-                    <div class="mission-icon" aria-hidden="true">!</div>
-                    <div>
                         <h2>Jouw missie</h2>
-                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat de aanval moet onderzoeken. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, meldingen van medewerkers en aanwijzingen uit verschillende systemen.</p>
-                        <p>Alle sporen lijken naar één persoon te leiden: <strong>Patient Zero</strong>. Dit is de eerste persoon of het eerste systeem dat tijdens de aanval geïnfecteerd raakte. Vanaf dit punt heeft de aanval zich verder door de organisatie verspreid.</p>
-                    </div>
+                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat moet onderzoeken waarom dat de systemen van onze gemeenten niet meer functioneren. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, 				meldingen van medewerkers en aanwijzingen uit verschillende systemen. Als een echte techneut doorloop jij de stappen om het probleem op te lossen.</p>
+
+			<br>
+			<p>Durf jij de uitdaging aan? Blijf jij rustig in een stressvolle situatie? 
+			<p>Veel plezier en succes gewenst!
+                        </div>
                 </section>
 
                 <figure class="evidence">
-                    <img src="afbeeldingen/patientzero.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
-                    <figcaption class="caption">Op de foto zie je: Kim, Mark, Jan, Rianne &amp; Margot</figcaption>
-                </figure>
+                    <img src="banner.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
+                                    </figure>
 
-                <section class="question">
-                    <div class="question-number">Vraag 1</div>
-                    <h2>Wie was de eerste besmette medewerker?</h2>
-                    <div class="answer-row">
-                        <input type="text" id="antwoord" aria-label="Vul de naam van de eerste besmette medewerker in" autocomplete="off" placeholder="Vul een naam in">
-                        <button type="button" onclick="controleer()">Controleer</button>
-                    </div>
-                    <p id="melding" role="status" aria-live="polite"></p>
-                </section>
+
             </div>
 
             <footer>Oktober Security Maand · Cyber Escape Room</footer>
         </section>
     </main>
 
-    <script>
-        function controleer() {
-            const invoerveld = document.getElementById("antwoord");
-            const melding = document.getElementById("melding");
-            const antwoord = invoerveld.value.trim().toLowerCase();
 
-            if (antwoord === "jan") {
-                window.location.href = "jan.html";
-            } else {
-                melding.textContent = "Onjuist antwoord. Bekijk de aanwijzingen nog eens en probeer opnieuw.";
-                invoerveld.value = "";
-                invoerveld.focus();
-            }
-        }
-
-        document.getElementById("antwoord").addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                controleer();
-            }
-        });
-    </script>
 </body>
 </html>

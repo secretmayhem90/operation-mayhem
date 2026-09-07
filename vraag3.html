@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Escape Room | Patient Zero</title>
+    <title>Cyber Escape Room | De Bron</title>
+
     <style>
         :root {
             --navy: #071827;
@@ -17,7 +19,9 @@
             --border: rgba(66, 217, 245, 0.24);
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -87,7 +91,11 @@
         .hero {
             padding: 38px 38px 32px;
             border-bottom: 1px solid var(--border);
-            background: linear-gradient(135deg, rgba(255, 101, 119, 0.12), rgba(66, 217, 245, 0.05));
+            background: linear-gradient(
+                135deg,
+                rgba(255, 101, 119, 0.12),
+                rgba(66, 217, 245, 0.05)
+            );
         }
 
         .alert {
@@ -113,7 +121,9 @@
             line-height: 1.65;
         }
 
-        .content { padding: 34px 38px 38px; }
+        .content {
+            padding: 34px 38px 38px;
+        }
 
         .scenario {
             padding: 22px;
@@ -136,37 +146,6 @@
             font-weight: 750;
             text-align: center;
         }
-
-        .mission {
-            display: grid;
-            grid-template-columns: 52px 1fr;
-            gap: 18px;
-            margin: 28px 0;
-            padding: 23px;
-            border: 1px solid rgba(255, 180, 84, 0.28);
-            border-radius: 14px;
-            background: rgba(255, 180, 84, 0.08);
-        }
-
-        .mission-icon {
-            display: grid;
-            place-items: center;
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            color: #06141e;
-            background: var(--orange);
-            font-size: 1.65rem;
-            font-weight: 900;
-        }
-
-        .mission h2 {
-            margin: 0 0 8px;
-            color: #ffd198;
-            font-size: 1.35rem;
-        }
-
-        .mission p:last-child { margin-bottom: 0; }
 
         .evidence {
             overflow: hidden;
@@ -197,7 +176,11 @@
             padding: 26px;
             border: 1px solid rgba(85, 230, 155, 0.25);
             border-radius: 16px;
-            background: linear-gradient(135deg, rgba(85, 230, 155, 0.09), rgba(66, 217, 245, 0.05));
+            background: linear-gradient(
+                135deg,
+                rgba(85, 230, 155, 0.09),
+                rgba(66, 217, 245, 0.05)
+            );
         }
 
         .question-number {
@@ -229,12 +212,6 @@
             color: var(--text);
             background: rgba(1, 13, 21, 0.75);
             font: inherit;
-            font-size: 1rem;
-        }
-
-        input:focus {
-            border-color: var(--cyan);
-            box-shadow: 0 0 0 3px rgba(66, 217, 245, 0.12);
         }
 
         button {
@@ -244,17 +221,8 @@
             border-radius: 10px;
             color: #03131d;
             background: linear-gradient(135deg, var(--cyan), #8be8f8);
-            font: inherit;
             font-weight: 800;
             cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        button:hover,
-        button:focus-visible {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(66, 217, 245, 0.18);
-            outline: none;
         }
 
         #melding {
@@ -272,75 +240,97 @@
             font-size: 0.86rem;
             background: rgba(2, 15, 24, 0.35);
         }
-
-        @media (max-width: 650px) {
-            body { padding: 18px 12px; }
-            .hero, .content { padding: 25px; }
-            .mission { grid-template-columns: 1fr; }
-            .answer-row { flex-direction: column; }
-            button { width: 100%; }
-        }
     </style>
 </head>
+
 <body>
+
     <main class="page">
-        <div class="mission-label">Cyber Escape Room · Incident actief</div>
+
+        <div class="mission-label">
+            Cyber Escape Room · Incident actief
+        </div>
 
         <section class="card">
+
             <header class="hero">
-                <p class="alert">Kritieke cyberaanval</p>
-                <h1>Patient Zero</h1>
-                <p>De gemeentelijke dienstverlening ligt stil. Onderzoek de aanwijzingen, reconstrueer de aanval en vind de eerste besmette medewerker.</p>
+                <p class="alert">Onderzoek de bron</p>
+                <h1>De Bron</h1>
+                <p>
+                    We weten inmiddels wie Patient Zero is.
+                    Nu moeten we achterhalen hoe de besmetting de organisatie
+                    is binnengekomen.
+                </p>
             </header>
 
             <div class="content">
+
                 <section class="scenario">
-                    <p>Het is maandagochtend. Je loopt het stadhuis binnen en merkt direct dat er iets mis is. Bij de balies staan inwoners in de rij. De telefoons rinkelen onafgebroken. Collega's lopen gehaast door de gangen en overal hoor je dezelfde vraag:</p>
 
-                    <div class="quote">“Doet jouw systeem het nog?”</div>
+                    <p>
+                       We hebben Patient Zero geïdentificeerd, maar het onderzoek is nog lang niet voorbij. Om de aanval te stoppen, moeten we achterhalen hoe de aanvallers binnen zijn gekomen.
 
-                    <p>Al snel wordt duidelijk wat er aan de hand is. Een cyberaanval heeft grote delen van de organisatie platgelegd. Uitkeringen kunnen niet worden verwerkt. Zaken kunnen niet worden geraadpleegd. Medewerkers kunnen documenten niet openen. De burgemeester is niet bereikbaar en verschillende applicaties geven alleen foutmeldingen.</p>
+Een cyberaanval wordt vaak gestart via een ogenschijnlijk onschuldige e-mail. Eén verkeerde klik op een link of bijlage kan voldoende zijn om malware binnen te laten. Als we de oorzaak niet vinden, bestaat het risico dat de organisatie opnieuw wordt getroffen, zelfs nadat alle systemen zijn hersteld.
 
-                    <p>De druk loopt op. Burgers wachten op hulp, maar de systemen die daarvoor nodig zijn werken niet meer. Terwijl iedereen probeert te achterhalen wat er gebeurd is, krijg jij een belangrijke opdracht.</p>
-                </section>
+De digitale recherche heeft een overzicht samengesteld van de recente e-mails die de getroffen medewerker heeft ontvangen. Jouw taak is om deze berichten zorgvuldig te analyseren en te bepalen welke e-mail verdacht is.
 
-                <section class="mission">
-                    <div class="mission-icon" aria-hidden="true">!</div>
-                    <div>
-                        <h2>Jouw missie</h2>
-                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat de aanval moet onderzoeken. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, meldingen van medewerkers en aanwijzingen uit verschillende systemen.</p>
-                        <p>Alle sporen lijken naar één persoon te leiden: <strong>Patient Zero</strong>. Dit is de eerste persoon of het eerste systeem dat tijdens de aanval geïnfecteerd raakte. Vanaf dit punt heeft de aanval zich verder door de organisatie verspreid.</p>
-                    </div>
+Let goed op details zoals de afzender, afwijkende domeinnamen, opvallende verzoeken, taalgebruik en onverwachte bijlagen of links. Cybercriminelen doen er alles aan om betrouwbaar over te komen.
+                    </p>
+
                 </section>
 
                 <figure class="evidence">
-                    <img src="afbeeldingen/patientzero.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
-                    <figcaption class="caption">Op de foto zie je: Kim, Mark, Jan, Rianne &amp; Margot</figcaption>
+                    <img src="afbeeldingen/logs.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
+                    <figcaption class="caption"></figcaption>
                 </figure>
 
+
                 <section class="question">
-                    <div class="question-number">Vraag 1</div>
-                    <h2>Wie was de eerste besmette medewerker?</h2>
-                    <div class="answer-row">
-                        <input type="text" id="antwoord" aria-label="Vul de naam van de eerste besmette medewerker in" autocomplete="off" placeholder="Vul een naam in">
-                        <button type="button" onclick="controleer()">Controleer</button>
+
+                    <div class="question-number">
+                        Vraag 3
                     </div>
-                    <p id="melding" role="status" aria-live="polite"></p>
+
+                    <h2>
+                        Van welk domein is de besmette e-mail afkomstig?
+                    </h2>
+
+                    <div class="answer-row">
+
+                        <input
+                            type="text"
+                            id="antwoord"
+                            autocomplete="off"
+                            placeholder="Voer het domein in">
+
+                        <button type="button" onclick="controleer()">
+                            Controleer
+                        </button>
+
+                    </div>
+
+                    <p id="melding"></p>
+
                 </section>
+
             </div>
 
-            <footer>Oktober Security Maand · Cyber Escape Room</footer>
+            <footer>
+                Oktober Security Maand · Cyber Escape Room
+            </footer>
+
         </section>
+
     </main>
 
-    <script>
+       <script>
         function controleer() {
             const invoerveld = document.getElementById("antwoord");
             const melding = document.getElementById("melding");
             const antwoord = invoerveld.value.trim().toLowerCase();
 
-            if (antwoord === "jan") {
-                window.location.href = "jan.html";
+            if (antwoord === "micr0soft365.com") {
+                window.location.href = "micr0soft365.com.html";
             } else {
                 melding.textContent = "Onjuist antwoord. Bekijk de aanwijzingen nog eens en probeer opnieuw.";
                 invoerveld.value = "";

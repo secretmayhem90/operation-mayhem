@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Escape Room | Patient Zero</title>
+    <title>Cyber Escape Room</title>
     <style>
         :root {
             --navy: #071827;
@@ -16,9 +16,7 @@
             --muted: #b7cad5;
             --border: rgba(66, 217, 245, 0.24);
         }
-
         * { box-sizing: border-box; }
-
         body {
             margin: 0;
             min-height: 100vh;
@@ -30,7 +28,6 @@
                 radial-gradient(circle at 85% 80%, rgba(255, 101, 119, 0.08), transparent 28%),
                 linear-gradient(145deg, #04101b 0%, var(--navy) 55%, #0a2230 100%);
         }
-
         body::before {
             content: "";
             position: fixed;
@@ -43,13 +40,11 @@
             background-size: 38px 38px;
             mask-image: linear-gradient(to bottom, black, transparent 90%);
         }
-
         .page {
             position: relative;
             width: min(980px, 100%);
             margin: 0 auto;
         }
-
         .mission-label {
             display: inline-flex;
             align-items: center;
@@ -65,7 +60,6 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
-
         .mission-label::before {
             content: "";
             width: 9px;
@@ -74,7 +68,6 @@
             background: var(--red);
             box-shadow: 0 0 14px var(--red);
         }
-
         .card {
             overflow: hidden;
             border: 1px solid var(--border);
@@ -83,13 +76,11 @@
             box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(8px);
         }
-
         .hero {
             padding: 38px 38px 32px;
             border-bottom: 1px solid var(--border);
             background: linear-gradient(135deg, rgba(255, 101, 119, 0.12), rgba(66, 217, 245, 0.05));
         }
-
         .alert {
             margin: 0 0 10px;
             color: var(--red);
@@ -98,45 +89,24 @@
             letter-spacing: 0.14em;
             text-transform: uppercase;
         }
-
         h1 {
             margin: 0 0 10px;
             font-size: clamp(2.4rem, 7vw, 4.5rem);
             line-height: 1;
         }
-
-        .hero p {
-            max-width: 700px;
-            margin: 0;
-            color: var(--muted);
-            font-size: 1.12rem;
-            line-height: 1.65;
-        }
-
         .content { padding: 34px 38px 38px; }
-
         .scenario {
             padding: 22px;
             border-left: 4px solid var(--red);
             border-radius: 12px;
             background: rgba(255, 101, 119, 0.07);
         }
-
         .content p {
             margin: 0 0 18px;
             color: #d9e9f0;
             font-size: 1.04rem;
             line-height: 1.75;
         }
-
-        .quote {
-            margin: 23px 0;
-            color: #ffffff;
-            font-size: clamp(1.4rem, 4vw, 2rem);
-            font-weight: 750;
-            text-align: center;
-        }
-
         .mission {
             display: grid;
             grid-template-columns: 52px 1fr;
@@ -147,7 +117,6 @@
             border-radius: 14px;
             background: rgba(255, 180, 84, 0.08);
         }
-
         .mission-icon {
             display: grid;
             place-items: center;
@@ -159,15 +128,12 @@
             font-size: 1.65rem;
             font-weight: 900;
         }
-
         .mission h2 {
             margin: 0 0 8px;
             color: #ffd198;
             font-size: 1.35rem;
         }
-
         .mission p:last-child { margin-bottom: 0; }
-
         .evidence {
             overflow: hidden;
             margin: 28px 0;
@@ -175,23 +141,37 @@
             border-radius: 15px;
             background: rgba(3, 20, 31, 0.6);
         }
-
         .evidence img {
             display: block;
             width: 100%;
             height: auto;
-            max-height: 590px;
+            max-height: 1000px;
             object-fit: contain;
             background: #020b11;
         }
-
         .caption {
             padding: 14px 18px;
             color: var(--muted);
             text-align: center;
             border-top: 1px solid var(--border);
         }
-
+        .chat-link {
+            display: block;
+            width: fit-content;
+            margin: 24px auto;
+            padding: 14px 24px;
+            border-radius: 10px;
+            color: #03131d;
+            background: linear-gradient(135deg, var(--cyan), #8be8f8);
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+        .chat-link:hover, .chat-link:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(66, 217, 245, 0.18);
+            outline: none;
+        }
         .question {
             margin-top: 28px;
             padding: 26px;
@@ -199,7 +179,6 @@
             border-radius: 16px;
             background: linear-gradient(135deg, rgba(85, 230, 155, 0.09), rgba(66, 217, 245, 0.05));
         }
-
         .question-number {
             color: var(--green);
             font-size: 0.8rem;
@@ -207,17 +186,11 @@
             letter-spacing: 0.13em;
             text-transform: uppercase;
         }
-
         .question h2 {
             margin: 7px 0 18px;
             font-size: clamp(1.35rem, 4vw, 1.8rem);
         }
-
-        .answer-row {
-            display: flex;
-            gap: 12px;
-        }
-
+        .answer-row { display: flex; gap: 12px; }
         input {
             flex: 1;
             min-width: 0;
@@ -231,12 +204,10 @@
             font: inherit;
             font-size: 1rem;
         }
-
         input:focus {
             border-color: var(--cyan);
             box-shadow: 0 0 0 3px rgba(66, 217, 245, 0.12);
         }
-
         button {
             min-height: 50px;
             padding: 12px 22px;
@@ -249,21 +220,17 @@
             cursor: pointer;
             transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
-
-        button:hover,
-        button:focus-visible {
+        button:hover, button:focus-visible {
             transform: translateY(-2px);
             box-shadow: 0 10px 24px rgba(66, 217, 245, 0.18);
             outline: none;
         }
-
         #melding {
             min-height: 24px;
             margin: 14px 0 0;
             color: var(--red);
             font-weight: 700;
         }
-
         footer {
             padding: 17px 34px;
             border-top: 1px solid var(--border);
@@ -272,7 +239,6 @@
             font-size: 0.86rem;
             background: rgba(2, 15, 24, 0.35);
         }
-
         @media (max-width: 650px) {
             body { padding: 18px 12px; }
             .hero, .content { padding: 25px; }
@@ -285,74 +251,76 @@
 <body>
     <main class="page">
         <div class="mission-label">Cyber Escape Room · Incident actief</div>
-
         <section class="card">
             <header class="hero">
                 <p class="alert">Kritieke cyberaanval</p>
-                <h1>Patient Zero</h1>
-                <p>De gemeentelijke dienstverlening ligt stil. Onderzoek de aanwijzingen, reconstrueer de aanval en vind de eerste besmette medewerker.</p>
+                <h1>De tijd dringt</h1>
             </header>
-
             <div class="content">
                 <section class="scenario">
-                    <p>Het is maandagochtend. Je loopt het stadhuis binnen en merkt direct dat er iets mis is. Bij de balies staan inwoners in de rij. De telefoons rinkelen onafgebroken. Collega's lopen gehaast door de gangen en overal hoor je dezelfde vraag:</p>
+                    <p>🚨 Dit is het scenario waar we al bang voor waren. Op de schermen verschijnt een losgeldbericht: onze bestanden zijn versleuteld en de aanvallers eisen betaling om de toegang terug te geven.
 
-                    <div class="quote">“Doet jouw systeem het nog?”</div>
+Maar we zijn nog niet klaar met ons onderzoek. Op dit moment weten we nog niet hoe groot de schade precies is. Welke systemen zijn getroffen? Welke gegevens zijn buitgemaakt? En misschien nog belangrijker: hoe heeft de aanvaller zich door het netwerk kunnen verplaatsen?
 
-                    <p>Al snel wordt duidelijk wat er aan de hand is. Een cyberaanval heeft grote delen van de organisatie platgelegd. Uitkeringen kunnen niet worden verwerkt. Zaken kunnen niet worden geraadpleegd. Medewerkers kunnen documenten niet openen. De burgemeester is niet bereikbaar en verschillende applicaties geven alleen foutmeldingen.</p>
+Iedere minuut telt. Terwijl de aanvallers druk uitoefenen, moeten wij het hoofd koel houden. Het herstellen van systemen heeft weinig zin als de oorzaak van de aanval niet wordt weggenomen. Voordat we ook maar denken aan herstel, moeten we precies weten welke toegang de aanvaller heeft gehad.
 
-                    <p>De druk loopt op. Burgers wachten op hulp, maar de systemen die daarvoor nodig zijn werken niet meer. Terwijl iedereen probeert te achterhalen wat er gebeurd is, krijg jij een belangrijke opdracht.</p>
+Daarom richten we ons nu op het account van Jan. Tot welke systemen had hij toegang? Welke rechten had hij? En welke van die rechten heeft de aanvaller mogelijk misbruikt?
+
+Het crisisteam probeert ondertussen tijd te winnen om de back-ups te controleren en een herstelplan op te stellen. Maar de klok tikt door en de hackers wachten niet.
+
+Jouw opdracht: analyseer de beschikbare gegevens en bepaal welke systemen bereikbaar waren met het account van Jan. De antwoorden kunnen ons helpen de omvang van de aanval vast te stellen én voorkomen dat dit opnieuw gebeurt.</p>
                 </section>
 
                 <section class="mission">
                     <div class="mission-icon" aria-hidden="true">!</div>
                     <div>
-                        <h2>Jouw missie</h2>
-                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat de aanval moet onderzoeken. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, meldingen van medewerkers en aanwijzingen uit verschillende systemen.</p>
-                        <p>Alle sporen lijken naar één persoon te leiden: <strong>Patient Zero</strong>. Dit is de eerste persoon of het eerste systeem dat tijdens de aanval geïnfecteerd raakte. Vanaf dit punt heeft de aanval zich verder door de organisatie verspreid.</p>
+                        <h2>Jouw taak</h2>
+                        <p>Jij hebt de taak gekregen om met de hackers te onderhandelen. De hackers zijn bereikbaar via een externe chat.
+                        Open de link, geef aan dat je 18 bent en vul een schuilnaam in.
+                        Aan de rechterkant van het scherm kun je op 'message' klikken achter de naam van de hackers 'Black Tulip'.</p>
+                        
+			<br>Ze zijn beschikbaar op de volgende tijdstippen:
+			<br>- Maandag 19 oktober - Tussen 10-11 uur
+			<br>- Dinsdag 20 oktober - Tussen 13-14 uur
+			<br>- Woensdag 21 oktober - Tussen 10-11 uur
+			<br>- Donderdag 22 oktober - Tussen 11-12 uur 
+			<br>- Vrijdag 23 oktober - Tussen 9-10 uur
                     </div>
                 </section>
-
                 <figure class="evidence">
-                    <img src="afbeeldingen/patientzero.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
-                    <figcaption class="caption">Op de foto zie je: Kim, Mark, Jan, Rianne &amp; Margot</figcaption>
+                    <img src="afbeeldingen\ransom.jpg" width="600" height="1000">
                 </figure>
-
+                <a class="chat-link" href="https://quickroom.org/?room=6Ji2wH4vBjFsMXW6NO9sU83g">Chat starten</a>
+                <p> Klik aan de linkerkant bij de naam van de hacker op 'message' en start een prive chat.</p>
                 <section class="question">
-                    <div class="question-number">Vraag 1</div>
-                    <h2>Wie was de eerste besmette medewerker?</h2>
+                    <div class="question-number">Vraag 6</div>
+                    <h2>Welk bedrag heb je met de aanvallers onderhandeld?</h2>
                     <div class="answer-row">
-                        <input type="text" id="antwoord" aria-label="Vul de naam van de eerste besmette medewerker in" autocomplete="off" placeholder="Vul een naam in">
-                        <button type="button" onclick="controleer()">Controleer</button>
+                        <input type="text" id="antwoord">
+                        <button onclick="controleer()">Controleer</button>
                     </div>
-                    <p id="melding" role="status" aria-live="polite"></p>
+                    <p id="melding"></p>
                 </section>
             </div>
-
             <footer>Oktober Security Maand · Cyber Escape Room</footer>
         </section>
     </main>
-
     <script>
         function controleer() {
-            const invoerveld = document.getElementById("antwoord");
-            const melding = document.getElementById("melding");
-            const antwoord = invoerveld.value.trim().toLowerCase();
-
-            if (antwoord === "jan") {
-                window.location.href = "jan.html";
+            let antwoord =
+                document.getElementById("antwoord")
+                .value
+                .trim()
+                .toLowerCase();
+            if (antwoord === "500.000") {
+                window.location.href =
+                    "ransom.html";
             } else {
-                melding.textContent = "Onjuist antwoord. Bekijk de aanwijzingen nog eens en probeer opnieuw.";
-                invoerveld.value = "";
-                invoerveld.focus();
+                document.getElementById("melding").innerHTML =
+                    "Onjuist antwoord. Probeer opnieuw.";
+                document.getElementById("antwoord").value = "";
             }
         }
-
-        document.getElementById("antwoord").addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                controleer();
-            }
-        });
     </script>
 </body>
 </html>

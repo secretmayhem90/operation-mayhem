@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Escape Room | Patient Zero</title>
+    <title>Cyber Escape Room | Maar, hoe nu verder?</title>
     <style>
         :root {
             --navy: #071827;
@@ -282,47 +282,58 @@
         }
     </style>
 </head>
+
+
 <body>
     <main class="page">
         <div class="mission-label">Cyber Escape Room · Incident actief</div>
 
         <section class="card">
             <header class="hero">
-                <p class="alert">Kritieke cyberaanval</p>
-                <h1>Patient Zero</h1>
-                <p>De gemeentelijke dienstverlening ligt stil. Onderzoek de aanwijzingen, reconstrueer de aanval en vind de eerste besmette medewerker.</p>
+                <h1>wat zien we nog meer gebeuren?</h1>
+                <p>Eén van de eerste punten dien voorbij </p>
             </header>
 
             <div class="content">
                 <section class="scenario">
-                    <p>Het is maandagochtend. Je loopt het stadhuis binnen en merkt direct dat er iets mis is. Bij de balies staan inwoners in de rij. De telefoons rinkelen onafgebroken. Collega's lopen gehaast door de gangen en overal hoor je dezelfde vraag:</p>
+                    <p>We weten inmiddels hoe de aanvaller het netwerk is binnengekomen. Maar één belangrijke vraag staat nog open: welke gegevens zijn buitgemaakt?
 
-                    <div class="quote">“Doet jouw systeem het nog?”</div>
+Tijdens een cyberaanval proberen aanvallers vaak gevoelige bestanden te kopiëren voordat zij systemen versleutelen. Dat doen ze omdat gestolen data extra druk uitoefent op een organisatie. Zelfs als een back-up beschikbaar is, kunnen aanvallers nog steeds dreigen om vertrouwelijke informatie openbaar te maken.
 
-                    <p>Al snel wordt duidelijk wat er aan de hand is. Een cyberaanval heeft grote delen van de organisatie platgelegd. Uitkeringen kunnen niet worden verwerkt. Zaken kunnen niet worden geraadpleegd. Medewerkers kunnen documenten niet openen. De burgemeester is niet bereikbaar en verschillende applicaties geven alleen foutmeldingen.</p>
+Gelukkig hebben we ook van deze fase logbestanden verzameld. Die bevatten waardevolle informatie over welke bestanden zijn geopend, gekopieerd of verstuurd. Dankzij deze digitale sporen kunnen we reconstrueren wat er precies is gebeurd en inschatten wat de gevolgen van het incident zijn.
 
-                    <p>De druk loopt op. Burgers wachten op hulp, maar de systemen die daarvoor nodig zijn werken niet meer. Terwijl iedereen probeert te achterhalen wat er gebeurd is, krijg jij een belangrijke opdracht.</p>
+Niet alle gegevens zijn immers even gevoelig. Wanneer een aanvaller een map met persberichten buitmaakt, is dat vervelend. Maar wanneer salarisspecificaties, persoonsgegevens of vertrouwelijke documenten worden gestolen, kan de impact veel groter zijn voor zowel de organisatie als haar medewerkers.
+
+Jouw taak is om de logregels hieronder zorgvuldig te analyseren. Zoek uit welk bestand door de aanvaller is buitgemaakt en help het crisisteam bepalen hoe ernstig deze datadiefstal werkelijk is.
+		    </p>
                 </section>
 
-                <section class="mission">
+
+<div class="answer-row"
+     style="margin-bottom:20px; justify-content:center;">
+    <button
+        type="button"
+        onclick="window.location.href='afbeeldingen/data_export_log.csv';">
+        Download bestand
+    </button>
+</div>
+
+<section class="mission">
                     <div class="mission-icon" aria-hidden="true">!</div>
                     <div>
-                        <h2>Jouw missie</h2>
-                        <p>Jij maakt onderdeel uit van het digitale onderzoeksteam dat de aanval moet onderzoeken. Je neemt plaats achter een bureau, klapt je laptop open en begint de beschikbare informatie te analyseren. Er zijn logbestanden, e-mails, meldingen van medewerkers en aanwijzingen uit verschillende systemen.</p>
-                        <p>Alle sporen lijken naar één persoon te leiden: <strong>Patient Zero</strong>. Dit is de eerste persoon of het eerste systeem dat tijdens de aanval geïnfecteerd raakte. Vanaf dit punt heeft de aanval zich verder door de organisatie verspreid.</p>
+                        <h2>Data delen</h2>
+                        <p>Datalekken ontstaan ook vaak als een verkeerd persoon gemaild wordt. Via Sharepoint deel je eenvoudig data met directe collega's. Zo maak je niet perongeluk de fout om interne data met een externe ontvanger te delen.
+			Bijkomend voordeel is ook dat jullie beiden met de meest recente documenten werken. Win-Win!</p>
                     </div>
                 </section>
 
-                <figure class="evidence">
-                    <img src="afbeeldingen/patientzero.jpg" width="800" height="500" alt="Onderzoeksafbeelding met vijf medewerkers">
-                    <figcaption class="caption">Op de foto zie je: Kim, Mark, Jan, Rianne &amp; Margot</figcaption>
-                </figure>
+
 
                 <section class="question">
-                    <div class="question-number">Vraag 1</div>
-                    <h2>Wie was de eerste besmette medewerker?</h2>
+                    <div class="question-number">Vraag 5</div>
+                    <h2>Welk document kan een datalek veroorzaken?</h2>
                     <div class="answer-row">
-                        <input type="text" id="antwoord" aria-label="Vul de naam van de eerste besmette medewerker in" autocomplete="off" placeholder="Vul een naam in">
+                        <input type="text" id="antwoord" aria-label="Vul de afwijkende stad in" autocomplete="off">
                         <button type="button" onclick="controleer()">Controleer</button>
                     </div>
                     <p id="melding" role="status" aria-live="polite"></p>
@@ -339,8 +350,8 @@
             const melding = document.getElementById("melding");
             const antwoord = invoerveld.value.trim().toLowerCase();
 
-            if (antwoord === "jan") {
-                window.location.href = "jan.html";
+            if (antwoord === "brp inwoners") {
+                window.location.href = "brp.html";
             } else {
                 melding.textContent = "Onjuist antwoord. Bekijk de aanwijzingen nog eens en probeer opnieuw.";
                 invoerveld.value = "";
