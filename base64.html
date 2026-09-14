@@ -222,112 +222,55 @@
 
         <section class="card">
             <header class="success">
-                
+                <div class="success-icon" aria-hidden="true">✓</div>
                 <div>
-                    <h1>Decryptie</h1>
-                    <p class="lead">Is dit onzin of denk je een hint te hebben?</p>
+                    <h1>Dat is het goede antwoord!</h1>
+                    <p class="lead">Je hebt het RAM geheugen goed geanalyseerd!</p>
                 </div>
             </header>
 
             <div class="content">
-           
+                <h2></h2>
 
-                <p>Ze hebben niets afgegeven.. niets! je begrijpt het niet. Hoe kan iemand dit doen? Het feit dat je een organisatie zo schaadt, laat betalen en het dan maar laat uitzoeken. Het is ongelofelijk.
-Iedereen kijkt elkaar vol ongeloof aan. We dachten allemaal dat dit het einde zou zijn van de systemen die het niet meer deden en nu zijn we nog steeds bij af. Je beseft dat je iets moet doen. Opnieuw de systemen in.
-Hoewel veel bestanden niet meer leesbaar zijn vanwege een vreemde extensie dus je zoekt verder in de systemen. Het RAM geheugen blijft actief totdat het systeem herstart wordt. 
-Maar.. poe, dit is hele andere koek. 
+                <p>In dit voorbeeld is gebruik gemaakt van Base64. Hoewel de tekst hierdoor onleesbaar lijkt, is dit geen echte versleuteling. Base64 is simpelweg een andere manier om gegevens weer te geven en kan zonder sleutel eenvoudig worden terugvertaald. In de praktijk gebruiken aanvallers meestal krachtige cryptografische algoritmen om gegevens daadwerkelijk te versleutelen. Zonder de juiste sleutel is dergelijke versleuteling vaak praktisch niet te kraken, waardoor een aanvaller controle houdt over de buitgemaakte gegevens.
+
+Voor deze oefening is bewust gekozen voor het woord 'koffiekoekje'. Want laten we eerlijk zijn: welke IT'er functioneert zonder koffie? Toch zit daar een kern van waarheid in. Tijdens malware-onderzoek worden regelmatig persoonlijke verwijzingen, grapjes of verborgen boodschappen aangetroffen in code, scripts en infrastructuur van aanvallers.
+
+Onderzoekers hebben in het verleden bijvoorbeeld malware aangetroffen met teksten als "hello from Russia", verwijzingen naar sciencefictionverhalen zoals Dune, of namen uit films en games. Bekende voorbeelden zijn termen als Arrakis, Atreides en Sandworm. Juist aan dergelijke details dankte de beruchte hackersgroep Sandworm uiteindelijk haar naam. Ook worden soms opmerkingen van programmeurs teruggevonden, zoals:
+
 <br>
-<br>Je begint met analyseren. Bovenaan; RAM, dat is wat zo waardevol is; het geheugen van een computer welke bewaard blijft totdat het systeem herstart wordt. Hier moet wel iets in staan. Je ziet een website voorbij komen, update-check-online.net. Een snelle controle bevestigd dat deze al niet meer bestaat. Vaak blijven deze domeinnamen maar een paar dagen actief om na een aanval snel weer te wissen. 
+<br>// TODO: make this less detectable
 <br>
-<br>Door naar de regel over de gebruiker Public. Ook dit herken je van trainingen. De temp map wordt vaak gebruikt om snel even iets op te slaan.
-<br>Daaronder zie je dat de authenticatie succesvol verloopt en wel voor het nieuwe account welke de hackers hebben aangemaakt; svc-_backup. 
-<br>DAAR! Daaronder! die code herken je niet! Is dit dan de spelt in de hooiberg?
-<br>Je beseft direct dat het géén binaire tekst is, dat bestaat uit één en nullen. Maar wat is het dan?
+<br>
+De //-tekens geven aan dat het om commentaar gaat en niet om uitvoerbare code. Zulke opmerkingen zijn bedoeld voor de ontwikkelaar zelf, maar worden soms per ongeluk achtergelaten (het zijn soms net mensen).
+
+Deze aanwijzingen maken het meestal niet mogelijk om direct de persoon achter de malware te identificeren. Ze geven onderzoekers echter wel een inkijkje in de achtergrond, interesses, humor en werkwijze van de aanvaller. Net als bij een echte digitale forensische analyse draait het daarom niet alleen om de techniek, maar ook om het herkennen van de menselijke sporen die iemand onbedoeld achterlaat.
 </p>
+
 
                 <div class="lesson">
                     <div class="lesson-icon" aria-hidden="true">⚠</div>
                     <div>
-                        <strong>Random Access Memory</strong>
-<p>========================================= 
-<br>MEMORY ANALYSIS - main-server
-<br>========================================= 
-<br>
-<br>Source       : RAM Capture
-<br>Process      : Updater.exe
-<br>PID          : 4832
-<br>Status	 : Suspicious
-<br>
-<br>Extracting printable strings...
-<br>
-<br>----------------------------------------------------
-<br>0x00000214A4B1
-<br>https://update-check-online.net
-<br>
-<br>0x00000214A4B4
-<br>cmd.exe /c
-<br>
-<br>0x00000214A4C8
-<br>C:\Users\Public\Temp
-<br>
-<br>0x00000214A4D3
-<br>AUTH_SUCCESS
-<br>
-<br>0x00000214A4F8
-<br>UserToken=svc_backup
-<br>
-<br>0x00000214A511
-<br>a29mZmlla29la2pl
-<br>
-<br>0x00000214A51D
-<br>ConnectionClosed
-<br>
-<br>0x00000214A53B
-<br>END_OF_BUFFER
-<br>
-<br>=========================================</p>
+                        <strong>Samen sta je sterker</strong>
+                        <p>Word je slachtoffer van ransomware? Dan hoeft betalen gelukkig niet altijd de enige optie te zijn. Sterker nog, het betalen van losgeld wordt sterk afgeraden. Er is namelijk geen garantie dat je je bestanden terugkrijgt, en bovendien financier je daarmee de criminele organisatie achter de aanval.
+
+De beste oplossing blijft een goede en recente back-up. Daarmee kun je systemen en bestanden vaak herstellen zonder afhankelijk te zijn van de aanvaller.
+
+Heb je geen back-up beschikbaar? Dan is het de moeite waard om een kijkje te nemen bij No More Ransom. Dit initiatief is opgezet door de Nationale Politie, Europol en verschillende beveiligingsbedrijven met als doel slachtoffers van ransomware te helpen hun bestanden terug te krijgen.
+
+Op de website kun je een versleuteld bestand of een losgeldbrief uploaden. Vervolgens wordt onderzocht welke ransomwarefamilie verantwoordelijk is voor de versleuteling en of hiervoor al een bekende decryptiesleutel beschikbaar is. In sommige gevallen kun je deze sleutel gratis downloaden en je bestanden herstellen zonder een cent aan de aanvallers te betalen.
+
+Helaas bestaat er niet voor iedere ransomwarevariant een oplossing. Cybercriminelen gebruiken vaak sterke versleuteling, waardoor bestanden zonder de juiste sleutel niet of nauwelijks te herstellen zijn. Toch heeft No More Ransom inmiddels al duizenden slachtoffers geholpen hun gegevens terug te krijgen. Een bezoek aan deze website kan daarom zeker de moeite waard zijn voordat je andere stappen overweegt.
+
+Onthoud: de beste verdediging tegen ransomware blijft een combinatie van goede back-ups, beveiligingsupdates, sterke wachtwoorden en alertheid op phishingberichten. Voorkomen is uiteindelijk veel eenvoudiger dan herstellen.</p>
                     </div>
                 </div>
+               <div class="actions">
+                    <a class="button button-secondary" href="https://www.nomoreransom.org/" target="_blank">> No More Ransom</a>
 
-
-               <section class="question">
-                    <div class="question-number">Vraag 8</div>
-                    <h2>Wat betekent de vreemde code als deze wordt omgezet naar nederlandse tekst?</h2>
-                    <div class="answer-row">
-                        <input type="text" id="antwoord" aria-label="Vul de afwijkende stad in" autocomplete="off">
-                        <button type="button" onclick="controleer()">Controleer</button>
-                    </div>
-                    <p id="melding" role="status" aria-live="polite"></p>
-                </section>
-            </div>
-
-            <footer>Oktober Security Maand · Cyber Escape Room</footer>
-        </section>
-    </main>
-
-    <script>
-        function controleer() {
-            const invoerveld = document.getElementById("antwoord");
-            const melding = document.getElementById("melding");
-            const antwoord = invoerveld.value.trim().toLowerCase();
-
-            if (antwoord === "koffiekoekje") {
-                window.location.href = "base64.html";
-            } else {
-                melding.textContent = "Onjuist antwoord. Bekijk de aanwijzingen nog eens en probeer opnieuw.";
-                invoerveld.value = "";
-                invoerveld.focus();
-            }
-        }
-
-        document.getElementById("antwoord").addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                controleer();
-            }
-        });
-    </script>
-
-
+                    <a class="button button-primary" href="vraag9.html">
+                        Door naar vraag 9 <span aria-hidden="true">→</span>
+                    </a>
                 </div>
             </div>
 

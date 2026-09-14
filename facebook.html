@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Escape Room</title>
+    <title>Cyber Escape Room | Antwoord gevonden</title>
     <style>
         :root {
             --navy: #071827;
-            --panel: rgba(12, 35, 52, 0.95);
+            --panel: rgba(12, 35, 52, 0.94);
+            --panel-light: rgba(19, 54, 75, 0.9);
             --cyan: #42d9f5;
             --green: #55e69b;
-            --red: #ff6577;
             --orange: #ffb454;
             --text: #eef9ff;
             --muted: #b7cad5;
             --border: rgba(66, 217, 245, 0.24);
         }
+
         * { box-sizing: border-box; }
+
         body {
             margin: 0;
             min-height: 100vh;
-            padding: 32px 18px;
             font-family: "Segoe UI", Arial, sans-serif;
             color: var(--text);
             background:
                 radial-gradient(circle at 15% 10%, rgba(66, 217, 245, 0.12), transparent 30%),
-                radial-gradient(circle at 85% 80%, rgba(255, 101, 119, 0.08), transparent 28%),
+                radial-gradient(circle at 85% 80%, rgba(85, 230, 155, 0.09), transparent 28%),
                 linear-gradient(145deg, #04101b 0%, var(--navy) 55%, #0a2230 100%);
+            padding: 32px 18px;
         }
+
         body::before {
             content: "";
             position: fixed;
@@ -38,13 +41,15 @@
                 linear-gradient(rgba(66, 217, 245, 0.08) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(66, 217, 245, 0.08) 1px, transparent 1px);
             background-size: 38px 38px;
-            mask-image: linear-gradient(to bottom, black, transparent 90%);
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
         }
+
         .page {
             position: relative;
-            width: min(980px, 100%);
+            width: min(920px, 100%);
             margin: 0 auto;
         }
+
         .mission-label {
             display: inline-flex;
             align-items: center;
@@ -60,6 +65,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
+
         .mission-label::before {
             content: "";
             width: 9px;
@@ -68,99 +74,192 @@
             background: var(--green);
             box-shadow: 0 0 14px var(--green);
         }
+
         .card {
             overflow: hidden;
             border: 1px solid var(--border);
             border-radius: 22px;
             background: var(--panel);
-            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
             backdrop-filter: blur(8px);
         }
-        .hero {
-            padding: 38px 38px 32px;
+
+        .success {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 22px;
+            align-items: center;
+            padding: 34px;
+            background: linear-gradient(135deg, rgba(85, 230, 155, 0.14), rgba(66, 217, 245, 0.05));
             border-bottom: 1px solid var(--border);
-            background: linear-gradient(135deg, rgba(85, 230, 155, 0.12), rgba(66, 217, 245, 0.05));
         }
-        .status {
-            margin: 0 0 10px;
+
+        .success-icon {
+            display: grid;
+            place-items: center;
+            width: 74px;
+            height: 74px;
+            border: 2px solid var(--green);
+            border-radius: 50%;
             color: var(--green);
-            font-size: 0.82rem;
+            font-size: 2.3rem;
             font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(85, 230, 155, 0.19);
         }
+
         h1 {
-            margin: 0;
-            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            margin: 0 0 7px;
+            font-size: clamp(2rem, 5vw, 3.3rem);
             line-height: 1.05;
         }
-        .content { padding: 34px 38px 38px; }
-        .scenario {
-            padding: 22px;
-            border-left: 4px solid var(--green);
-            border-radius: 12px;
-            background: rgba(85, 230, 155, 0.07);
+
+        .lead {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.08rem;
         }
+
+        .content { padding: 34px; }
+
+        .content h2 {
+            margin: 0 0 16px;
+            color: var(--cyan);
+            font-size: 1.35rem;
+        }
+
         .content p {
             margin: 0 0 18px;
             color: #d9e9f0;
             font-size: 1.04rem;
             line-height: 1.75;
         }
-        .content p:last-child { margin-bottom: 0; }
-        .next-link {
-            display: block;
-            width: fit-content;
-            margin: 28px auto 0;
-            padding: 14px 24px;
-            border-radius: 10px;
-            color: #03131d;
-            background: linear-gradient(135deg, var(--cyan), #8be8f8);
-            font-weight: 800;
-            text-decoration: none;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+        .lesson {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 15px;
+            margin: 28px 0;
+            padding: 21px;
+            border: 1px solid rgba(255, 180, 84, 0.28);
+            border-left: 4px solid var(--orange);
+            border-radius: 13px;
+            background: rgba(255, 180, 84, 0.08);
         }
-        .next-link:hover,
-        .next-link:focus-visible {
+
+        .lesson-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .lesson strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #ffd198;
+        }
+
+        .lesson p { margin: 0; }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 50px;
+            padding: 12px 20px;
+            border: 1px solid var(--cyan);
+            border-radius: 11px;
+            text-decoration: none;
+            font-weight: 750;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
             transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(66, 217, 245, 0.18);
+            box-shadow: 0 10px 24px rgba(66, 217, 245, 0.17);
             outline: none;
         }
+
+        .button-primary {
+            color: #03131d;
+            background: linear-gradient(135deg, var(--cyan), #8be8f8);
+        }
+
+        .button-secondary {
+            color: var(--cyan);
+            background: transparent;
+        }
+
         footer {
             padding: 17px 34px;
             border-top: 1px solid var(--border);
             color: #819aa7;
-            text-align: center;
             font-size: 0.86rem;
+            text-align: center;
             background: rgba(2, 15, 24, 0.35);
         }
+
         @media (max-width: 650px) {
             body { padding: 18px 12px; }
-            .hero, .content { padding: 25px; }
-            .next-link { width: 100%; text-align: center; }
+            .success { grid-template-columns: 1fr; padding: 25px; }
+            .success-icon { width: 62px; height: 62px; }
+            .content { padding: 25px; }
+            .actions { flex-direction: column; }
+            .button { width: 100%; }
         }
     </style>
 </head>
 <body>
     <main class="page">
-        <div class="mission-label">Cyber Escape Room · Antwoord correct</div>
+        <div class="mission-label">Cyber Escape Room · Missievoortgang</div>
+
         <section class="card">
-            <header class="hero">
-                <p class="status">Onderzoek voortzetten</p>
-                <h1>Dat is het goede antwoord!</h1>
+            <header class="success">
+                <div class="success-icon" aria-hidden="true">✓</div>
+                <div>
+                    <h1>Dat is het goede antwoord!</h1>
+                    <p class="lead"></p>
+                </div>
             </header>
+
             <div class="content">
-                <section class="scenario">
-                    <p>Wachtwoorden vormen de eerste verdedigingslinie van je accounts en systemen. Daarom is het belangrijk om geen wachtwoorden te gebruiken die gebaseerd zijn op persoonlijke informatie, zoals namen, geboortedata, huisdieren of hobby's. Zulke gegevens zijn vaak eenvoudig te vinden op sociale media en kunnen door aanvallers worden gebruikt om een wachtwoord te raden.
+                                    <p>Wachtwoorden vormen de eerste verdedigingslinie van je accounts en systemen. Daarom is het belangrijk om geen wachtwoorden te gebruiken die gebaseerd zijn op persoonlijke informatie, zoals namen, geboortedata, huisdieren of hobby's. Zulke gegevens zijn vaak eenvoudig te vinden op sociale media en kunnen door aanvallers worden gebruikt om een wachtwoord te raden.
 
 Een sterk wachtwoord is lang, uniek en moeilijk te voorspellen. Gebruik bij voorkeur een wachtwoordzin of een willekeurige combinatie van woorden, cijfers en symbolen. Daarnaast is het belangrijk om voor elk account een ander wachtwoord te gebruiken. Zo voorkom je dat een aanvaller met één gelekt wachtwoord toegang krijgt tot meerdere systemen.
 
 Onthoud: hoe meer persoonlijke informatie je online deelt, hoe gemakkelijker het voor een aanvaller wordt om een zwak wachtwoord te raden. Gelukkig heb jij in deze opdracht laten zien hoe belangrijk het is om daar bewust van te zijn!
 
 Als er dan ook nog Multifactor op geactiveerd wordt is de kans op misbruik nóg kleiner.</p>
-                </section>
-                <a class="next-link" href="vraag3.html">Door naar vraag 3</a>
+
+                <div class="lesson">
+                    <div class="lesson-icon" aria-hidden="true">⚠</div>
+                    <div>
+                        <strong>HaveIBeenPwned</strong>
+                        <p>Have I Been Pwned (HIBP) is een bekende online dienst van beveiligingsonderzoeker Troy Hunt waarmee je kunt controleren of jouw e-mailadres of wachtwoord voorkomt in bekende datalekken. De site vergelijkt jouw gegevens met miljarden records uit openbaar geworden hacks en datalekken.</p>
+	<br>
+	<br>Controleer eenvoudig of je bij een datalek betrokken bent geweest via de knop hieronder.
+                    </div>
+                </div>
+
+                <div class="actions">
+ 
+                   </a>
+		               <div class="actions">
+                    <a class="button button-secondary" href="https://www.haveibeenpwned.com/" target="_blank">Have I Been Pwned</a>
+
+                    <a class="button button-primary" href="vraag3.html">
+                        Door naar vraag 3 <span aria-hidden="true">→</span>
+                    </a>
+                </div>
             </div>
+
             <footer>Oktober Security Maand · Cyber Escape Room</footer>
         </section>
     </main>
