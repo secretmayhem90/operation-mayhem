@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOWR OT - Herstelmelding</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#061018;
+    color:white;
+    overflow-x:hidden;
+}
+
+.header{
+    background:#091821;
+    padding:20px;
+    text-align:center;
+    border-bottom:1px solid #1d4958;
+}
+
+.header h1{
+    margin:0;
+    color:#4dd0e1;
+}
+
+.wrapper{
+    max-width:900px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.card{
+    background:#122235;
+    border:1px solid #27475f;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 0 30px rgba(0,255,255,.1);
+}
+
+.status{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:30px;
+    background:#0b3d23;
+    color:#7dff85;
+    font-weight:bold;
+    margin-bottom:20px;
+    animation:blink 2s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.5;
+    }
+}
+
+.codebox{
+    margin:35px auto;
+    width:250px;
+    background:#000;
+    border:2px solid #4dd0e1;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.codebox h2{
+    margin-top:0;
+    color:#4dd0e1;
+}
+
+.code{
+    font-size:64px;
+    font-weight:bold;
+    color:#76ff8a;
+    letter-spacing:10px;
+}
+
+.logs{
+    margin-top:30px;
+    background:#08131b;
+    border-radius:12px;
+    padding:20px;
+    font-family:Consolas,monospace;
+    color:#8cb6c3;
+    text-align:left;
+}
+
+.log{
+    margin:8px 0;
+}
+
+.success{
+    color:#8cff92;
+}
+
+.button-area{
+    text-align:center;
+    margin-top:40px;
+}
+
+.dashboard-btn{
+    display:inline-block;
+    background:#21c7d9;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    padding:16px 35px;
+    border-radius:12px;
+    transition:.2s;
+}
+
+.dashboard-btn:hover{
+    background:#42dded;
+    transform:translateY(-2px);
+}
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    color:#6f8b96;
+    font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>DOWR OT CONTROLE RUIMTE</h1>
+</div>
+
+<div class="wrapper">
+
+    <div class="card">
+
+        <div class="status">
+            ✓ TOEGANG HERSTELD
+        </div>
+
+        <h2>Kantoorruimte DOWR-OT</h2>
+
+        <p>
+            Na herstel van de OT Complex zijn aanvullende systeemlogs
+            beschikbaar gekomen.
+        </p>
+
+        <div class="codebox">
+
+            <h2>Gevonden herstelcode</h2>
+
+            <div class="code">
+                9999
+            </div>
+
+        </div>
+
+        <div class="logs">
+
+            <div class="log">
+                [INFO] Sluiscontroller succesvol vrijgegeven
+            </div>
+
+            <div class="log">
+                [INFO] Communicatie met systemen hersteld
+            </div>
+
+            <div class="log">
+                [INFO] SCADA verbinding actief
+            </div>
+
+            <div class="log success">
+                [SUCCESS] Ophaalbrug gesloten
+            </div>
+
+            <div class="log success">
+                [SUCCESS] Sluiscomplex acteert weer normaal
+            </div>
+
+            <div class="log success">
+                [SUCCESS] Waterniveau zakt naar normale stand
+            </div>
+
+            <div class="log success">
+                [SUCCESS] Kritieke situatie hersteld
+            </div>
+
+        </div>
+
+        <div class="button-area">
+
+            <a href="OT-dashboard2.html" class="dashboard-btn">
+                Terug naar OT Dashboard. Vul bovenstaande herstelcode is
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        DOWR OT Operations Center
+    </div>
+
+</div>
+
+</body>
+</html>

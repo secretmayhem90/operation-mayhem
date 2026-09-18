@@ -254,93 +254,71 @@
         <section class="card">
             <header class="hero">
                 <p class="alert">Kritieke cyberaanval</p>
-                <h1>Ook dat nog...</h1>
+                <h1>De tijd dringt</h1>
             </header>
             <div class="content">
                 <section class="scenario">
-                    <p>Je zit geconcentreerd achter je laptop en analyseert de beschikbare gegevens. Langzaam vallen de puzzelstukken op hun plek. Logbestanden, e-mails, inlogpogingen en meldingen van collega's vormen samen steeds duidelijker het beeld van de aanval. Je weet inmiddels hoe de aanvaller waarschijnlijk is binnengekomen, maar er ontbreken nog belangrijke details.
+                    <p>🚨 Dit is het scenario waar we al bang voor waren. Op de schermen verschijnt een losgeldbericht: onze bestanden zijn versleuteld en de aanvallers eisen betaling om de toegang terug te geven.
 
-Plotseling gaat de deur van de crisisruimte open. Je leidinggevende stapt naar binnen, gevolgd door een medewerker van Communicatie. Aan hun gezichten zie je direct dat er iets aan de hand is.
-<br>
-<p>"We hebben een probleem," zegt je leidinggevende. "Het nieuws over de aanval heeft zich verspreid. Lokale en regionale media staan beneden in de hal. Ze willen antwoorden. Burgers maken zich zorgen en de burgemeester verwacht zo snel mogelijk een reactie."
+Maar we zijn nog niet klaar met ons onderzoek. Op dit moment weten we nog niet hoe groot de schade precies is. Welke systemen zijn getroffen?  En misschien nog belangrijker: hoe heeft de aanvaller zich door het netwerk kunnen verplaatsen?
 
-De communicatieadviseur kijkt je aan. "We hebben iemand nodig die het woord voert. Iemand die begrijpt wat er is gebeurd én die het verhaal helder kan uitleggen."
-
-Voordat je kunt reageren, word je richting de ingang begeleid. Wanneer de deuren opengaan, zie je camera's, microfoons en verslaggevers die ongeduldig wachten. Zodra je naar voren stapt, begint een spervuur van vragen.
-
-Flitslichten vullen de ruimte. Journalisten praten door elkaar heen en proberen als eerste jouw reactie vast te leggen.
-
-"Zijn er persoonsgegevens gestolen?"
-
-"Kunnen inwoners nog gebruikmaken van gemeentelijke diensten?"
-
-"Heeft de gemeente losgeld betaald?"
-
-"Wie is verantwoordelijk voor deze aanval?"
-
-Alle ogen zijn op jou gericht. Jouw antwoorden bepalen niet alleen hoe de media berichten over het incident, maar ook hoeveel vertrouwen inwoners houden in de gemeente.
-
-<div class="container">
-
-    <h2>Persconferentie</h2>
-
-    <p>
-        Een journalist vraagt:
-        <br><br>
-        <strong>
-        "Zijn er persoonsgegevens van inwoners buitgemaakt?"</strong>
-	<br>Wat antwoord je?
-        
-    </p>
-<div class="answer-row"
-     style="margin-bottom:20px; justify-content:center;">
-
- <br>   <button onclick="fout()">
-        Ja, er is data gestolen, mensen kunnen persoonlijke phishing ontvangen van de criminelen.
-    </button>
-
- <br>   <button onclick="goed()">
-       De analyse loopt nog. Zodra er meer bekend is communiceren we via de officiële kanalen
-    </button>
-
- <br>   <button onclick="fout()">
-       Ik ben nog druk bezig met analyseren maar ben op de goede weg.
-    </button>
-
-    <div id="melding"></div>
-
-</div>
-
-<script>
-
-function fout() {
-    document.getElementById("melding").innerHTML =
-        "❌ Helaas, dit antwoord is niet correct. Probeer het opnieuw.";
-}
-
-function goed() {
-
-    // HIER de volgende pagina opgeven
-    window.location.href = "nieuws.html";
-
-}
-
-</script>
+Iedere minuut telt. Terwijl de aanvallers druk uitoefenen, moeten wij het hoofd koel houden. Het herstellen van systemen laat nog even op zich wachten omdat nog niet alles uitgezocht is. Voordat we ook maar denken aan herstel, moeten we precies weten wat de aanvallers allemaal gedaan hebben.
 
 
+Het crisisteam probeert ondertussen tijd te winnen om de back-ups te controleren en een herstelplan op te stellen. Een collega heeft contact gehad met de hackers waardoor een klok is gaan tellen. Op de afbeeldingenw ordt 2 miljoen euro geeist. Wat moeten we doen? De klok tikt door en de hackers wachten niet.
+</p>
+                </section>
 
-
-
+                <section class="mission">
+                    <div class="mission-icon" aria-hidden="true">!</div>
+                    <div>
+                        <h2>Jouw taak</h2>
+                        <p>Jij hebt de taak gekregen om met de hackers te onderhandelen. De hackers zijn bereikbaar via een externe chat.
+                        Open de link, geef aan dat je 18 bent en vul een schuilnaam in.
+                        Aan de rechterkant van het scherm kun je op 'message' klikken achter de naam van de hackers 'Black Tulip'.</p>
+                        
+			<br>Ze zijn beschikbaar op de volgende tijdstippen:
+			<br>- Maandag 19 oktober - Tussen 10-11 uur
+			<br>- Dinsdag 20 oktober - Tussen 13-14 uur
+			<br>- Woensdag 21 oktober - Tussen 10-11 uur
+			<br>- Donderdag 22 oktober - Tussen 11-12 uur 
+			<br>- Vrijdag 23 oktober - Tussen 9-10 uur
+                    </div>
                 </section>
                 <figure class="evidence">
-                    <img src="afbeeldingen\nieuws.jpg" width="600" height="1000">
+                    <img src="afbeeldingen\ransom.jpg" width="600" height="1000">
                 </figure>
-               
+                <a class="chat-link" href="https://quickroom.org/?room=6Ji2wH4vBjFsMXW6NO9sU83g" target="_blank">Chat starten</a>
+                <p> Klik aan de linkerkant bij de naam van de hacker op 'message' en start een prive chat.</p>
+                <section class="question">
+                    <div class="question-number">Vraag 7</div>
+                    <h2>Welk bedrag heb je met de aanvallers onderhandeld?</h2>
+                    <div class="answer-row">
+                        <input type="text" id="antwoord">
+                        <button onclick="controleer()">Controleer</button>
+                    </div>
                     <p id="melding"></p>
                 </section>
             </div>
             <footer>Oktober Security Maand · Cyber Escape Room</footer>
         </section>
     </main>
-
+    <script>
+        function controleer() {
+            let antwoord =
+                document.getElementById("antwoord")
+                .value
+                .trim()
+                .toLowerCase();
+            if (antwoord === "500.000") {
+                window.location.href =
+                    "ransom.html";
+            } else {
+                document.getElementById("melding").innerHTML =
+                    "Onjuist antwoord. Probeer opnieuw.";
+                document.getElementById("antwoord").value = "";
+            }
+        }
+    </script>
+</body>
 </html>

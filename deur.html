@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OT Toegangscontrole - Gemaal DOWR Zuid</title>
+
+<style>
+body{
+    margin:0;
+    background:#071015;
+    color:#fff;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+.panel{
+    width:520px;
+    background:#0b171d;
+    border:1px solid #1f6f8b;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 30px rgba(0,200,255,.15);
+    margin:40px auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+    color:#4dd0e1;
+}
+
+.header p{
+    color:#9bb0b8;
+}
+
+.display{
+    background:#000;
+    border:1px solid #333;
+    border-radius:10px;
+    padding:18px;
+    margin:20px 0;
+    text-align:center;
+    font-size:42px;
+    letter-spacing:12px;
+    color:#4dd0e1;
+}
+
+.keys{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+button{
+    padding:18px;
+    font-size:24px;
+    border:none;
+    border-radius:10px;
+    background:#1c2730;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#25404d;
+}
+
+.verify{
+    width:100%;
+    margin-top:15px;
+    background:#21c7d9;
+    color:#000;
+    font-weight:bold;
+}
+
+.loghint{
+    margin-top:20px;
+    padding:12px;
+    border-radius:10px;
+    background:#081118;
+    color:#7fa3af;
+    font-size:12px;
+}
+
+/* Scrollruimte */
+.scrollspace{
+    height:2000px;
+}
+
+/* Verborgen archief */
+.archive{
+    width:700px;
+    max-width:90%;
+    margin:50px auto;
+    padding:20px;
+    background:#05090c;
+    border:1px solid #182a32;
+    border-radius:10px;
+    color:#4b5f68;
+    font-family:Consolas, monospace;
+    font-size:11px;
+    line-height:1.8;
+}
+
+.archive-title{
+    color:#6f8a94;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.realhint{
+    color:#7c99a3;
+}
+</style>
+
+</head>
+<body>
+
+<div class="panel">
+
+    <div class="header">
+        <h1>DOWR - OT TOEGANGSCONTROLE</h1>
+        <p>Toegangsdeur technische ruimte</p>
+    </div>
+
+    <div id="display" class="display">----</div>
+
+    <div class="keys" id="keys"></div>
+
+    <button class="verify" onclick="checkCode()">
+        Code verifiëren
+    </button>
+
+    <div class="loghint">
+        Heb je al verder gekeken dan je scherm lang is?
+    </div>
+
+</div>
+
+<!-- Grote lege ruimte zodat deelnemers moeten scrollen -->
+<div class="scrollspace"></div>
+
+<!-- Verborgen archief -->
+<div class="archive">
+
+<div class="archive-title">
+OT ONDERHOUDSARCHIEF - GEMAAL DOWR ZUID
+</div>
+
+LOG-ARCHIEF #00381 | PLC herstart voltooid<br>
+LOG-ARCHIEF #00382 | Communicatie RTU hersteld<br>
+LOG-ARCHIEF #00383 | UPS batterijtest uitgevoerd<br>
+LOG-ARCHIEF #00384 | Modbus polling interval aangepast<br>
+LOG-ARCHIEF #00385 | Firmware deurcontroller bijgewerkt<br>
+LOG-ARCHIEF #00386 | Noodstroomaggregaat getest<br>
+LOG-ARCHIEF #00387 | Historische toegangsmethode gearchiveerd<br>
+
+<span class="realhint">
+LOG-ARCHIEF #00388 | Toegangscode aangepast naar 3694 (T9).
+</span><br>
+
+LOG-ARCHIEF #00389 | Toegangscode succesvol aangepast<br>
+LOG-ARCHIEF #00390 | Onderhoud afgerond<br>
+
+</div>
+
+<script>
+
+// Toegangscode
+const ACCESS_CODE = "3694";
+
+let entered = "";
+
+const keys = document.getElementById("keys");
+
+// Knoppen 1 t/m 9
+for(let i = 1; i <= 9; i++){
+
+    const button = document.createElement("button");
+
+    button.innerText = i;
+
+    button.onclick = () => addDigit(i);
+
+    keys.appendChild(button);
+}
+
+// C knop
+const clearBtn = document.createElement("button");
+
+clearBtn.innerText = "C";
+
+clearBtn.onclick = () => {
+
+    entered = "";
+
+    updateDisplay();
+
+};
+
+keys.appendChild(clearBtn);
+
+// 0 knop
+const zeroBtn = document.createElement("button");
+
+zeroBtn.innerText = "0";
+
+zeroBtn.onclick = () => addDigit(0);
+
+keys.appendChild(zeroBtn);
+
+// Backspace knop
+const backBtn = document.createElement("button");
+
+backBtn.innerText = "←";
+
+backBtn.onclick = () => {
+
+    entered = entered.slice(0,-1);
+
+    updateDisplay();
+
+};
+
+keys.appendChild(backBtn);
+
+function addDigit(digit){
+
+    if(entered.length < 4){
+
+        entered += digit;
+
+        updateDisplay();
+
+    }
+
+}
+
+function updateDisplay(){
+
+    document.getElementById("display").innerText =
+        (entered + "----").substring(0,4);
+
+}
+
+function checkCode(){
+
+    if(entered === ACCESS_CODE){
+
+        alert("Toegang verleend. De deurcontroller wordt vrijgegeven.");
+
+        window.location = "pagina2.html";
+
+    }
+    else{
+
+        alert("Onjuiste toegangscode");
+
+        entered = "";
+
+        updateDisplay();
+
+    }
+
+}
+
+updateDisplay();
+
+</script>
+
+</body>
+</html>
